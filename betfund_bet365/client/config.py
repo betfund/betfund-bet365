@@ -32,3 +32,13 @@ class Bet365SportId(Enum):
     SQUASH = 107
     WATER_POLO = 110
     E_SPORTS = 151
+
+
+RESPONSE_OBJECT_FACTORY = {
+    "result": "ResultResponse",
+    "inplay_filter": "InPlayFilterResponse",
+    "event": "InPlayOddsResponse",
+    "prematch": "PreMatchOddsResponse",
+    "inplay": "InPlayEventsResponse",
+    "upcoming": "UpcomingEventsResponse",
+}
