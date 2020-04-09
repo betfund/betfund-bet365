@@ -74,10 +74,16 @@ class Bet365(object):
         response.raise_for_status()
 
         try:
-            delegation = getattr(facades, RESPONSE_OBJECT_FACTORY.get(url_extras))
+            # Using factory pattern we instantiate the Response Object
+            delegation = getattr(
+                facades, RESPONSE_OBJECT_FACTORY.get(url_extras)
+            )
+
+            # Load the desired `.json()` response to ResponseObject
             delegate_object = delegation(response.json())
-            
+
         except AttributeError:
+            # fall back on `.json()` if facade does not exist
             return response.json()
 
         return delegate_object

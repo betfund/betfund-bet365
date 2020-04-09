@@ -32,6 +32,7 @@ __all__ = [
     "InPlayResult",
     "MetaBase",
     "PagerBase",
+    "PreMatchOddsResponse",
     "Result",
     "ResultEvent",
     "ResultResponse",

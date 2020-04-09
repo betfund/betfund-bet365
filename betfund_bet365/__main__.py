@@ -10,12 +10,5 @@ def main(sport_id: str):  # pragma: no cover
     return upcoming_events
 
 
-if __name__ == '__main__': # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     main(sport_id="151")
-
-    client = Bet365()
-    pmo = client.pre_match_odds(
-        fi="87967884"
-    )
-
-    import pdb; pdb.set_trace()
