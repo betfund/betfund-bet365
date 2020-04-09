@@ -22,10 +22,7 @@ from typing import List, Union
 
 
 class Bet365Response(dict):
-    """
-    Base ResponseObject creator for Bet365 API Response.
-
-    """
+    """Base ResponseObject creator for Bet365 API Response."""
 
     def __init__(self, data: dict):
         super(Bet365Response, self).__init__(data)
@@ -75,6 +72,24 @@ class Pager(dict):
 
 
 class IdNameMeta(dict):
+    """
+    Reusable component for dot notation for objects with "id" and "name".
+
+    (e.g.)
+    >>> data = {
+    ...     "league":{
+    ...         "id":"10037409",
+    ...         "name":"Mexico Liga MX Femenil"
+    ...     }
+    ... }
+
+    >>> id_name = IdNameMeta(data.get("league"))
+
+    >>> id_name.id
+    >>> "10037409"
+
+    """
+
     def __init__(self, data: dict):
         super(IdNameMeta, self).__init__(data)
 
@@ -90,6 +105,7 @@ class IdNameMeta(dict):
 class UpcomingEvent(dict):
     """
     Reusable component for dot notation access of `results` from UpcomingEvent Endpoint.
+
     (e.g.)
     >>> data = {
     ...   "id":"86576599",
@@ -170,7 +186,9 @@ class UpcomingEventsResponse(Bet365Response):
     >>> response_object.results
     >>> [
     ...   {
-    ...     # ... contents here ...
+    ...     "id": "12345",
+    ...     "our_event_id":"2294461",
+    ...     "updated_at": "1586461906"
     ...   },
     ... ]
 
@@ -187,6 +205,9 @@ class UpcomingEventsResponse(Bet365Response):
 
     @property
     def results(self) -> Union[List[UpcomingEvent], None]:
+        """
+
+        """
         if not self._results:
             return None
 

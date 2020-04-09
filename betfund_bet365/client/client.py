@@ -13,7 +13,6 @@ Bet365 Exposes 6 Endpoints:
     Bet365 Upcoming Events ["GET"]
 
 Responses are parsed into Facade Access objects (Base Bet365Response)
-
 """
 import os
 import requests
@@ -69,7 +68,6 @@ class Bet365(object):
         response = requests.get(
             url=url, headers=self.headers, params=self._prune(params)
         )
-
         response.raise_for_status()
 
         delegation = getattr(facades, RESPONSE_OBJECT_FACTORY.get(url_extras))
@@ -146,7 +144,14 @@ class Bet365(object):
 
     def pre_match_odds(self, fi: str, raw: Optional[str] = None) -> Bet365Response:
         """
-        TODO: Docstring
+        Caller for `PreMatch Odds` endpoint of Bet365 API.
+
+        Args:
+            fi (str): FI from Bet365 InPlay
+            raw (Optional[str]): option for raw Bet365 body response
+
+        Returns:
+            Bet365Response: Response Object for `pre_match_odds` endpoint
         """
         querystring = {
             "FI": fi,
