@@ -2,6 +2,7 @@
 
 from .base import (
     Bet365Response,
+    FiResultBase,
     MetaBase,
     PagerBase
 )
@@ -10,6 +11,8 @@ from .in_play_events import (
     InPlayEventsResponse,
     InPlayResult
 )
+
+from .pre_match_odds import PreMatchOddsResponse
 
 from .result import (
     Result,
@@ -24,6 +27,7 @@ from .upcoming_events import (
 
 __all__ = [
     "Bet365Response",
+    "FiResultBase",
     "InPlayEventsResponse",
     "InPlayResult",
     "MetaBase",

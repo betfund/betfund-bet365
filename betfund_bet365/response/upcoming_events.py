@@ -22,7 +22,7 @@ from betfund_bet365.response.base import (
 
 class UpcomingEvent(ResultBase):
     """
-    Reusable component for dot notation access of `results` from UpcomingEvent Endpoint.
+    Component for dot notation access of `results` from UpcomingEvent Endpoint.
 
     (e.g.)
     >>> data = {

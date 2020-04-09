@@ -47,21 +47,24 @@ class Bet365(object):
             "x-rapidapi-key": os.getenv("BET365_KEY"),
         }
 
-    def _get(self, url_extras: str, params: dict, version: str = "v1") -> Bet365Response:
+    def _get(
+        self, url_extras: str, params: dict, version: str = "v1"
+    ) -> Bet365Response:
         """
         Request maker for Bet365.
+
         NOTE: Internal method to be invoked by direct endpoint requests
-        
+
         Args:
             url_extras (str): Tail for desired endpoint provided by caller
             params (dict): GET operation params dict
             version (str): API version for `url` provided by caller
-            
+
         Returns:
             Bet365Response: Response object accessible by dot notation
-        
+
         Raises:
-            `raise_for_status()` for statuses other than `200`    
+            `raise_for_status()` for statuses other than `200`
         """
         url = urljoin(self.base_url.format(version), url_extras)
 
@@ -70,8 +73,12 @@ class Bet365(object):
         )
         response.raise_for_status()
 
-        delegation = getattr(facades, RESPONSE_OBJECT_FACTORY.get(url_extras))
-        delegate_object = delegation(response.json())
+        try:
+            delegation = getattr(facades, RESPONSE_OBJECT_FACTORY.get(url_extras))
+            delegate_object = delegation(response.json())
+            
+        except AttributeError:
+            return response.json()
 
         return delegate_object
 
@@ -142,7 +149,9 @@ class Bet365(object):
 
         return self._get(url_extras="event", params=querystring)
 
-    def pre_match_odds(self, fi: str, raw: Optional[str] = None) -> Bet365Response:
+    def pre_match_odds(
+        self, fi: str, raw: Optional[str] = None
+    ) -> Bet365Response:
         """
         Caller for `PreMatch Odds` endpoint of Bet365 API.
 
@@ -158,7 +167,9 @@ class Bet365(object):
             "raw": raw
         }
 
-        return self._get(url_extras="prematch", params=querystring, version="v2")
+        return self._get(
+            url_extras="prematch", params=querystring, version="v2"
+        )
 
     def in_play_events(self, raw: Optional[str] = None) -> Bet365Response:
         """

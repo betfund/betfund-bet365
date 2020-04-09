@@ -6,7 +6,7 @@ Bet365Response object is tasked to parse:
     "success": int
     "results": list
 
-This module provides delegation for `UpcomingEventsResponse`
+This module provides delegation for `InPlayEventsResponse`
 
 The objects are accessible via dot notation or via `.get(..)`
 """

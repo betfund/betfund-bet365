@@ -31,13 +31,45 @@ class Bet365Response(dict):
         return self.get("success")
 
     @property
-    def _results(self) -> Union[list, None]:  # This is overloaded hence the `_*`
+    def _results(self) -> Union[list, None]:
+        # This is overloaded hence the `_*`
         return self.get("results")
+
+
+class FiResultBase(dict):
+    """
+    Component for dot notation for "FI" based objects.
+
+    (e.g.)
+    >>> data = {
+    ...     "FI":"87967884",
+    ...     "event_id":"12312412",
+    ...     "main": {...}
+    ... }
+
+    >>> FiResultBase(data).fi
+    >>> "87967884"
+    """
+
+    def __init__(self, data: dict):
+        super(FiResultBase, self).__init__(data)
+
+    @property
+    def fi(self) -> str:
+        return self.get("FI")
+
+    @property
+    def event_id(self) -> str:
+        return self.get("event_id")
+
+    @property
+    def main(self) -> dict:
+        return self.get("main")
 
 
 class MetaBase(dict):
     """
-    Reusable component for dot notation for objects with "id" and "name".
+    Component for dot notation for objects with "id" and "name".
 
     (e.g.)
     >>> data = {
@@ -71,7 +103,7 @@ class MetaBase(dict):
 
 class PagerBase(dict):
     """
-    Reusable component for dot notation access of `pager` object in API Response.
+    Component for dot notation access of `pager` object in API Response.
     (e.g.)
     >>> data = {
     ...     "page": 1,
@@ -111,7 +143,7 @@ class PagerBase(dict):
 
 class ResultBase(dict):
     """
-    Reusable component for dot notation access of `results` from any Endpoint.
+    Component for dot notation access of `results` from any Endpoint.
 
     (e.g.)
     >>> data = {
@@ -171,7 +203,7 @@ class ResultBase(dict):
 
 class StatsBase(dict):
     """
-    Reusable component for dot notation access of `stats` from any Endpoint.
+    Component for dot notation access of `stats` from any Endpoint.
 
     (e.g.)
     >>> data = {
