@@ -5,12 +5,12 @@ Bet365 Serves as a Client to make requests to Bet365 API
 see for documentation: (https://1394697259.gitbook.io/bet365-api/)
 
 Bet365 Exposes 6 Endpoints:
-    Bet365 Result ["GET"]
-    Bet365 InPlay Filter ["GET"]
-    Bet365 InPlay Odds ["GET"]
-    Bet365 PreMatch odds ["GET"]
-    Bet365 InPlay Events ["GET"]
-    Bet365 Upcoming Events ["GET"]
+    Result ["GET"]
+    InPlay Filter ["GET"]
+    InPlay Odds ["GET"]
+    PreMatch odds ["GET"]
+    InPlay Events ["GET"]
+    Upcoming Events ["GET"]
 
 Responses are parsed into Facade Access objects (Base Bet365Response)
 """
@@ -20,9 +20,9 @@ import requests
 from typing import Optional
 from urllib.parse import urljoin
 
-import betfund_bet365.response.facades as facades
+import betfund_bet365.response as facades
 
-from betfund_bet365.response.facades import Bet365Response
+from betfund_bet365.response import Bet365Response
 from betfund_bet365.client.config import RESPONSE_OBJECT_FACTORY
 
 
