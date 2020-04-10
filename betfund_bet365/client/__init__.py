@@ -6,7 +6,7 @@ TODO: Information
 
 
 __title__ = "betfund-bet365"
-__version__ = "0.0.1"
+__version__ = "0.0.3"
 __author__ = "Leon Kozlowski"
 __license__ = "MIT"
 

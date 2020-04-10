@@ -10,7 +10,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="betfund-bet365",
-    version="0.0.1",
+    version="0.0.3",
     description="High Throughput Wrapper for Bet365 API",
     long_description=long_description,
     long_description_content_type="text/markdown",
