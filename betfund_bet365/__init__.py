@@ -1,2 +1,5 @@
 """Client Namespace."""
-from .client import Bet365  # noqa: F401
+from .client import (  # noqa: F401
+    Bet365,
+    Bet365SportId
+)
