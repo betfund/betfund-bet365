@@ -12,4 +12,4 @@
 #
 # Kubeflow disables string-interpolation because we are starting to use f
 # style strings
-disable=bad-continuation,dangerous-default-value,invalid-name,too-many-arguments,too-many-instance-attributes,useless-super-delegation
+disable=bad-continuation,dangerous-default-value,invalid-name,too-many-arguments,too-many-instance-attributes,useless-super-delegation,unsubscriptable-object

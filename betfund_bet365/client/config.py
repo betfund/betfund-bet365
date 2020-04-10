@@ -4,7 +4,16 @@ from enum import DynamicClassAttribute, Enum
 from typing import Union
 
 
-class Bet365SportId(Enum):
+class ExtendedEnum(Enum):
+    """Allows access to overloaded functions for standard Enum"""
+
+    @classmethod
+    def list(cls):
+        """Interface to provide all allowed values for a RundownSportId. """
+        return list(map(lambda c: (c.sport_id, c.pretty), cls))
+
+
+class Bet365SportId(ExtendedEnum):
     """
     Bet365 API SportId Enumeration.
 
@@ -27,35 +36,40 @@ class Bet365SportId(Enum):
     """
 
     @DynamicClassAttribute
-    def pretty(self) -> Union[str, None]:  # pragma: no cover
+    def pretty(self) -> Union[str, None]:
         """Access for `pretty` in base `Enum`."""
-        return self[1] if self else None
+        return self.value[1] if self else None
 
-    SOCCER = (1, "soccer")
-    CRICKET = (3, "cricket")
-    RUGBY_UNION = (8, "rugby-union")
-    BOXING_UFC = (9, "boxing-ufc")
+    @DynamicClassAttribute
+    def sport_id(self) -> Union[str, None]:
+        """Access for `sport_id` in base `Enum`."""
+        return self.value[0] if self else None
+
+    SOCCER = ("1", "soccer")
+    CRICKET = ("3", "cricket")
+    RUGBY_UNION = ("8", "rugby-union")
+    BOXING_UFC = ("9", "boxing-ufc")
     AMERICAN_FOOTBALL = (12, "american-football")
-    TENNIS = (13, "tennis")
-    SNOOKER = (14, "snooker")
-    DARTS = (15, "darts")
-    BASEBALL = (16, "baseball")
-    ICE_HOCKEY = (17, "ice-hockey")
-    BASKETBALL = (18, "basketball")
-    RUGBY_LEAGUE = (19, "rugby")
-    AUSTRALIAN_RULES = (36, "austalian-rules")
-    BOWLS = (66, "bowls")
-    GAELIC_SPORTS = (75, "gaelic-sports")
-    HANDBALL = (78, "handball")
-    FUTSAL = (83, "futsal")
-    FLOORBALL = (90, "floorball")
-    VOLLEYBALL = (91, "volleyball")
-    TABLE_TENNIS = (92, "table-tennis")
-    BADMINTON = (94, "badminton")
-    BEACH_VOLLEYBALL = (95, "beach-volleyball")
-    SQUASH = (107, "squash")
-    WATER_POLO = (110, "water-polo")
-    E_SPORTS = (151, "e-sports")
+    TENNIS = ("13", "tennis")
+    SNOOKER = ("14", "snooker")
+    DARTS = ("15", "darts")
+    BASEBALL = ("16", "baseball")
+    ICE_HOCKEY = ("17", "ice-hockey")
+    BASKETBALL = ("18", "basketball")
+    RUGBY_LEAGUE = ("19", "rugby")
+    AUSTRALIAN_RULES = ("36", "austalian-rules")
+    BOWLS = ("66", "bowls")
+    GAELIC_SPORTS = ("75", "gaelic-sports")
+    HANDBALL = ("78", "handball")
+    FUTSAL = ("83", "futsal")
+    FLOORBALL = ("90", "floorball")
+    VOLLEYBALL = ("91", "volleyball")
+    TABLE_TENNIS = ("92", "table-tennis")
+    BADMINTON = ("94", "badminton")
+    BEACH_VOLLEYBALL = ("95", "beach-volleyball")
+    SQUASH = ("107", "squash")
+    WATER_POLO = ("110", "water-polo")
+    E_SPORTS = ("151", "e-sports")
 
 
 class Bet365Mnemonic(Enum):
