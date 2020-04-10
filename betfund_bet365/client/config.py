@@ -27,7 +27,7 @@ class Bet365SportId(Enum):
     """
 
     @DynamicClassAttribute
-    def pretty(self) -> Union[str, None]:
+    def pretty(self) -> Union[str, None]:  # pragma: no cover
         return self[1] if self else None
 
     SOCCER = (1, "soccer")

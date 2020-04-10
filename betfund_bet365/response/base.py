@@ -122,23 +122,16 @@ class PagerBase(dict):
         super(PagerBase, self).__init__(data)
 
     @property
-    def pager(self) -> dict:
-        return self
-
-    @property
     def page(self) -> Union[int, None]:
-        pager = self.pager
-        return pager.get("page") if pager else None
+        return self.get("page")
 
     @property
     def per_page(self) -> Union[int, None]:
-        pager = self.pager
-        return pager.get("per_page") if pager else None
+        return self.get("per_page")
 
     @property
     def total(self) -> Union[int, None]:
-        pager = self.pager
-        return pager.get("total") if pager else None
+        return self.get("total")
 
 
 class ResultBase(dict):

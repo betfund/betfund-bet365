@@ -17,7 +17,7 @@ Responses are parsed into Facade Access objects (Base Bet365Response)
 import os
 import requests
 
-from typing import Optional
+from typing import Optional, Union
 from urllib.parse import urljoin
 
 import betfund_bet365.response as facades
@@ -206,10 +206,12 @@ class Bet365(object):
 
         Args:
             sport_id (str): String identifier for sport type
-            page (Optional[str]):
-            lng_id (Optional[str]):
-            day (Optional[str]):
-            league_id (Optional[str]):
+            page (Optional[str]): Pagination for API Response
+                (NOTE: Out of box default is 50)
+            lng_id (Optional[str]): Language Id
+            day (Optional[str]): Go forward ONLY date to query
+                (e.g.) - 20201124
+            league_id (Optional[str]): Id for desired league
 
         Returns:
             Bet365Response: Response Object for `upcoming_events` endpoint
@@ -225,7 +227,7 @@ class Bet365(object):
         return self._get(url_extras="upcoming", params=querystring)
 
     @staticmethod
-    def _prune(params: dict):
+    def _prune(params: dict) -> Union[dict, None]:
         """
         Cleaner of `params` dictionary for API Request
 

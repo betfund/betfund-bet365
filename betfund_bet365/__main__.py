@@ -1,4 +1,8 @@
-"""Default runner for `betfund_bet365` wrapper."""
+"""
+Default runner for `betfund_bet365` wrapper.
+
+Minimal Test Case.
+"""
 from betfund_bet365 import Bet365
 
 
@@ -11,4 +15,4 @@ def main(sport_id: str):  # pragma: no cover
 
 
 if __name__ == '__main__':  # pragma: no cover
-    main(sport_id="151")
+    main(sport_id="92")

@@ -23,7 +23,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.7",
-    keywords="betfund lines bet",
+    keywords="betfund lines bet365",
     packages=find_packages(),
     install_requires=[
         "requests",
