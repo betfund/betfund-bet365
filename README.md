@@ -59,17 +59,32 @@ print(upcoming_events)
 }
 ```
 
+Access response objects with dot notation
 ```python
 from betfund_bet365 import Bet365
 
 client = Bet365()
-upcoming_events = client.upcoming_events(sport="49")
+upcoming_events = client.upcoming_events(sport_id="49")
 
-print(upcoming_events.time)
+print(upcoming_events.success)
 ```
 
 ```bash
-"1586480400"
+1
+```
+
+Access of array type `results` objects
+```python
+from betfund_bet365 import Bet365
+
+client = Bet365()
+upcoming_events = client.upcoming_events(sport_id="49")
+
+print(upcoming_events.events[0].id)
+```
+
+```bash
+"88107197"
 ```
 
 
@@ -83,20 +98,14 @@ print(upcoming_events.time)
     + `$ export BET365_KEY=yourSecretKey`
 
 
-## Calling Client
-The main runner is via `lines.main`
-
-A caller will need to pass an argument `sport_id`
-
-
 ## Testing
 ```bash
 pip install -e ".[testing]"
 
-# Unit Tests
+# Test with pytest
 make tests
 
-# Line with flake
+# Lint with flake8
 make flake
 
 # Lint with pylint
