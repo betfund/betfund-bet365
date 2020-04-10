@@ -45,14 +45,17 @@ class UpcomingEvent(ResultBase):
     """
 
     def __init__(self, data: dict):
+        """Constructor for UpcomingEvent."""
         super(UpcomingEvent, self).__init__(data)
 
     @property
     def our_event_id(self) -> str:
+        """Access for `our_event_id`."""
         return self.get("our_event_id")
 
     @property
     def updated_at(self) -> str:
+        """Access for `updated_at`."""
         return self.get("updated_at")
 
 
@@ -86,14 +89,13 @@ class UpcomingEventsResponse(Bet365Response):
     """
 
     def __init__(self, data):
+        """Constructor for UpcomingEventsResponse."""
         super(UpcomingEventsResponse, self).__init__(data)
         self.pager = PagerBase(data.get("pager"))
 
     @property
     def events(self) -> Union[List[UpcomingEvent], None]:
-        """
-
-        """
+        """Access for `events`."""
         if not self._results:
             return None
 

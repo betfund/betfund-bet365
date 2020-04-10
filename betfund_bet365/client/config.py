@@ -28,6 +28,7 @@ class Bet365SportId(Enum):
 
     @DynamicClassAttribute
     def pretty(self) -> Union[str, None]:  # pragma: no cover
+        """Access for `pretty` in base `Enum`."""
         return self[1] if self else None
 
     SOCCER = (1, "soccer")
@@ -97,7 +98,7 @@ class Bet365Mnemonic(Enum):
     C1_ID_MINI_DIARY_C1 = "C1"
     C2_ID_MINI_DIARY_C2 = "C2"
     MINI_DIARY_C3 = "C3"
-    CLOSE_BETS_DISABLED_EXCLUDED_COUNTRIES_FINANCIALS_MARKET_NAME_CLOSE_BETS_ENABLED = "CB"  # noqa: E501
+    CLOSE_BETS = "CB"
     BET_TYPE_PULL_COMPETITION_CODE = "CC"
     COMPETITION_DROPDOWN_FINANCIALS_TRADE = "CD"
     CONFIG = "CF"

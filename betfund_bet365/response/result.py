@@ -30,14 +30,17 @@ class ResultEvent(dict):
     """
 
     def __init__(self, data: dict):
+        """Constructor for UpcomingEventsResponse."""
         super(ResultEvent, self).__init__(data)
 
     @property
     def id(self) -> str:
+        """Access for `id`."""
         return self.get("id")
 
     @property
     def text(self):
+        """Access for `text`."""
         return self.get("text")
 
 
@@ -70,30 +73,37 @@ class Result(ResultBase):
     """
 
     def __init__(self, data: dict):
+        """Constructor for Result."""
         super(Result, self).__init__(data)
 
     @property
     def o_away(self) -> MetaBase:
+        """Access for `o_away`."""
         return MetaBase(self.get("o_away"))
 
     @property
     def timer(self) -> dict:
+        """Access for `timer`."""
         return self.get("timer")
 
     @property
     def scores(self) -> dict:
+        """Access for `scores`."""
         return self.get("scores")
 
     @property
     def stats(self) -> dict:
+        """Access for `stats`."""
         return self.get("stats")
 
     @property
     def extra(self) -> dict:
+        """Access for `extra`."""
         return self.get("extra")
 
     @property
     def events(self) -> Union[List[ResultEvent], None]:
+        """Access for `events`."""
         if not self.get("events"):
             return None
 
@@ -105,18 +115,22 @@ class Result(ResultBase):
 
     @property
     def has_lineup(self) -> str:
+        """Access for `has_lineup`."""
         return self.get("has_lineup")
 
     @property
     def inplay_created_at(self) -> str:
+        """Access for `inplay_created_at`."""
         return self.get("inplay_created_at")
 
     @property
     def inplay_updated_at(self) -> str:
+        """Access for `inplay_updated_at`."""
         return self.get("inplay_updated_at")
 
     @property
     def confirmed_at(self) -> str:
+        """Access for `confirmed_at`."""
         return self.get("confirmed_at")
 
 
@@ -148,13 +162,12 @@ class ResultResponse(Bet365Response):
     """
 
     def __init__(self, data):
+        """Constructor for ResultResponse."""
         super(ResultResponse, self).__init__(data)
 
     @property
     def results(self) -> Union[List[Result], None]:
-        """
-
-        """
+        """Access for `results`."""
         if not self._results:
             return None
 

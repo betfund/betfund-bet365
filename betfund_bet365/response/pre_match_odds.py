@@ -47,13 +47,12 @@ class PreMatchOddsResponse(Bet365Response):
     """
 
     def __init__(self, data):
+        """Constructor for PreMatchOddsResponse."""
         super(PreMatchOddsResponse, self).__init__(data)
 
     @property
     def events(self) -> Union[List[FiResultBase], None]:
-        """
-
-        """
+        """Access for `events`."""
         if not self._results:
             return None
 

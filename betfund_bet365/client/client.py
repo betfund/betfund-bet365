@@ -15,10 +15,10 @@ Bet365 Exposes 6 Endpoints:
 Responses are parsed into Facade Access objects (Base Bet365Response)
 """
 import os
-import requests
-
 from typing import Optional, Union
 from urllib.parse import urljoin
+
+import requests
 
 import betfund_bet365.response as facades
 
@@ -26,7 +26,7 @@ from betfund_bet365.response import Bet365Response
 from betfund_bet365.client.config import RESPONSE_OBJECT_FACTORY
 
 
-class Bet365(object):
+class Bet365:
     """
     Bet365 API Wrapper.
 

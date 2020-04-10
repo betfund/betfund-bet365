@@ -8,7 +8,7 @@ tests:
 
 .PHONY: lint
 lint:
-	pylint -f colorized -d all -r y betfund_bet365/ tests setup.py
+	pylint betfund_bet365/
 
 .PHONY: flake
 flake:

@@ -13,7 +13,6 @@ The objects are accessible via dot notation or via `.get(..)`
 
 from typing import List, Union
 
-from betfund_bet365.client.config import Bet365Mnemonic
 from betfund_bet365.response.base import (
     Bet365Response,
     StatsBase
@@ -31,16 +30,19 @@ class InPlayResult(dict):
     """
 
     def __init__(self, data: dict):
+        """Constructor for InPlayResult."""
         super(InPlayResult, self).__init__(data)
 
     @property
     def type(self) -> str:
+        """Access for `type`."""
         return self.get("type")
 
-    @property
-    def mnemonic(self):
-        this = Bet365Mnemonic
-        return this.value.mnemonic
+    # @property
+    # def mnemonic(self):
+    #     """Access for `mnemonic`."""
+    #     this = Bet365Mnemonic
+    #     return this.value.mnemonic
 
 
 class InPlayEventsResponse(Bet365Response):
@@ -74,14 +76,13 @@ class InPlayEventsResponse(Bet365Response):
     """
 
     def __init__(self, data):
+        """Constructor for InPlayEventsResponse."""
         super(InPlayEventsResponse, self).__init__(data)
         self.stats = StatsBase(data)
 
     @property
     def results(self) -> Union[List[InPlayResult], None]:
-        """
-
-        """
+        """Access for `results`."""
         if not self._results:
             return None
 
