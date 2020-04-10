@@ -17,10 +17,17 @@ class TestBet365(TestCase):
 
     def setUp(self) -> None:
         """Instantiate Bet365."""
-        self.test_client = Bet365()
+        self.test_client = Bet365(
+            api_host="you-will-never-guess",
+            api_key="you-will-never-guess"
+        )
 
     def test_constructor(self):
         """Unit test for `Bet365().__init__(...)`."""
+        assert self.test_client.headers == {
+            "x-rapidapi-host": "you-will-never-guess",
+            "x-rapidapi-key": "you-will-never-guess",
+        }
         assert self.test_client.base_url == (
             "https://bet365-sports-odds.p.rapidapi.com/{}/bet365/"
         )

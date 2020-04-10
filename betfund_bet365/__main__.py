@@ -8,7 +8,10 @@ from betfund_bet365 import Bet365
 
 def main(sport_id: str):  # pragma: no cover
     """Run `upcoming_events` endpoint by default."""
-    client = Bet365()
+    client = Bet365(
+        api_host="someHost",
+        api_key="someKey"
+    )
 
     upcoming_events = client.upcoming_events(sport_id=sport_id)
 

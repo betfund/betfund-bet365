@@ -14,7 +14,6 @@ Bet365 Exposes 6 Endpoints:
 
 Responses are parsed into Facade Access objects (Base Bet365Response)
 """
-import os
 from typing import Optional, Union
 from urllib.parse import urljoin
 
@@ -39,12 +38,12 @@ class Bet365:
         Bet365 Upcoming Events ["GET"] via `upcoming_events(...)`
     """
 
-    def __init__(self):
+    def __init__(self, api_host, api_key):
         """Constructor for Bet365."""
         self.base_url = "https://bet365-sports-odds.p.rapidapi.com/{}/bet365/"
         self.headers = {
-            "x-rapidapi-host": os.getenv("BET365_HOST"),
-            "x-rapidapi-key": os.getenv("BET365_KEY"),
+            "x-rapidapi-host": api_host,
+            "x-rapidapi-key": api_key,
         }
 
     def _get(
