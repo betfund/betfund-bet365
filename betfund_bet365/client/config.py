@@ -49,7 +49,7 @@ class Bet365SportId(ExtendedEnum):
     CRICKET = ("3", "cricket")
     RUGBY_UNION = ("8", "rugby-union")
     BOXING_UFC = ("9", "boxing-ufc")
-    AMERICAN_FOOTBALL = (12, "american-football")
+    AMERICAN_FOOTBALL = ("12", "american-football")
     TENNIS = ("13", "tennis")
     SNOOKER = ("14", "snooker")
     DARTS = ("15", "darts")
