@@ -20,7 +20,6 @@ from urllib.parse import urljoin
 import requests
 
 import betfund_bet365.response as facades
-
 from betfund_bet365.response import Bet365Response
 from betfund_bet365.client.config import RESPONSE_OBJECT_FACTORY
 

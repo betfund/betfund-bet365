@@ -38,12 +38,6 @@ class InPlayResult(dict):
         """Access for `type`."""
         return self.get("type")
 
-    # @property
-    # def mnemonic(self):
-    #     """Access for `mnemonic`."""
-    #     this = Bet365Mnemonic
-    #     return this.value.mnemonic
-
 
 class InPlayEventsResponse(Bet365Response):
     """

@@ -36,17 +36,6 @@ class TestBet365Response(TestCase):
         assert len(result) == 1
 
 
-# class TestFiResultBase(TestCase):
-#     """Unit tests for FiResultBase Facade."""
-#
-#     def setUp(self) -> None:
-#         """Instantiate FiResultBase."""
-#
-#         self.test_client = FiResultBase(
-#             load_json("testData/upcoming_events_table_tennis.json")
-#         )
-
-
 class TestMetaBase(TestCase):
     """Unit tests for MetaBase Facade."""
 
