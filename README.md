@@ -80,7 +80,7 @@ from betfund_bet365 import Bet365
 client = Bet365(api_host="someHost", api_key="someKey")
 upcoming_events = client.upcoming_events(sport_id="49")
 
-print(upcoming_events.events[0].id)
+print(upcoming_events.results[0].id)
 ```
 
 ```bash
