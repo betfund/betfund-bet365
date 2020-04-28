@@ -81,10 +81,10 @@ class UpcomingEventsResponse(Bet365Response):
     ...   },
     ... ]
 
-    >>> response_object.events[0].our_event_id
+    >>> response_object.results[0].our_event_id
     >>> "2294461"
 
-    >>> response_object.events[0].updated_at
+    >>> response_object.results[0].updated_at
     >>> "1586461906"
     """
 
@@ -94,8 +94,8 @@ class UpcomingEventsResponse(Bet365Response):
         self.pager = PagerBase(data.get("pager"))
 
     @property
-    def events(self) -> Union[List[UpcomingEvent], None]:
-        """Access for `events`."""
+    def results(self) -> Union[List[UpcomingEvent], None]:
+        """Access for `results`."""
         if not self._results:
             return None
 
