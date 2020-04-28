@@ -9,7 +9,7 @@ from unittest import TestCase
 
 from betfund_bet365.client.client import Bet365
 
-from tests.fixtures.mocks import MockRequestsResponse
+from tests.mocks import MockRequestsResponse
 
 
 class TestBet365(TestCase):
